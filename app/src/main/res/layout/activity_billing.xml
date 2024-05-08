@@ -46,6 +46,7 @@
                 android:layout_weight="1">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/monthly"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -78,6 +79,7 @@
                 android:layout_weight="1">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/weekly"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -110,6 +112,7 @@
                 android:layout_weight="1">
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/dailybutton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -163,6 +166,11 @@
                 android:orientation="vertical"
                 android:padding="8dp">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Liter"/>
 
                 <com.db.williamchart.view.BarChartView
                     android:id="@+id/barChart"
@@ -171,6 +179,13 @@
                     app:chart_barsColor="@color/purple_200"
                     app:chart_barsRadius="4dp"
                     app:chart_labelsSize="10dp"/>
+                <TextView
+                    android:id="@+id/labelbawah"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:layout_marginBottom="8dp"
+                    android:text="Bulan"/>
 
                 <TextView
                     android:id="@+id/bulan"

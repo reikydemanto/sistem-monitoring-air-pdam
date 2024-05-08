@@ -51,8 +51,8 @@ class MainActivity : AppCompatActivity() {
 
         // Melakukan sesuatu dengan data yang Anda dapatkan
 //        if (idKamar != null) {
-            // Lakukan sesuatu dengan data yang diterima dari Intent
-            // Contoh: Menampilkan data di TextView
+        // Lakukan sesuatu dengan data yang diterima dari Intent
+        // Contoh: Menampilkan data di TextView
 //            Toast.makeText(
 //                applicationContext,
 //                idKamar.toString(),
@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         buttonMonitor = findViewById<Button>(R.id.monitor)
         buttonMonitor.setOnClickListener {
             val intent = Intent(this, MonitoringActivity::class.java)
-            intent.putExtra("idKamar",idKamar.toString() )
+            intent.putExtra("idKamar", idKamar.toString())
             startActivity(intent)
         }
 
@@ -85,11 +85,11 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-
         val calendar = Calendar.getInstance()
-        val bulanSaatIni = calendar.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault())
-        val textView: TextView = findViewById(R.id.bulan)
-        textView.text = bulanSaatIni
+        val bulanSaatIni =
+            calendar.getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.getDefault())
+//        val textView: TextView = findViewById(R.id.bulan)
+//        textView.text = bulanSaatIni
         calendar.set(Calendar.DAY_OF_MONTH, 1)
         val firstDayOfMonth = calendar.time
         val lastDayOfMonths = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
@@ -101,36 +101,36 @@ class MainActivity : AppCompatActivity() {
         val mutableList = mutableListOf<Pair<String, Float>>()
 
         // Mengambil data dari Firestore
-        collectionRef
-            .whereNotEqualTo("hari", "NULL")
-            .whereGreaterThan("hari", firstDayOfMonth)
-            .whereLessThan("hari", lastDayOfMonth)
-            .get()
-            .addOnSuccessListener { result ->
-                val data = ArrayList<String>()
-                for (document: QueryDocumentSnapshot in result) {
-                    val field1: Double? = document.getDouble("air")
-                    val doubleValue: Double = field1?.toDouble() ?: 0.0
-                    val field1Float: Float = doubleValue.toFloat()
-                    val field2 = document.getDouble("id_kamar")
-                    val field3 = document.getDate("hari")
-                    val label = getDayOfMonth(field3 as Date).toString()
-                    val record = "$field1, $field2 ,$field3"
-                    data.add(record)
-                    if (field2 != null) {
-                        if (field2.equals(doubleValueKamar)) {
-                            mutableList.add(label to field1Float)
-                        }
-                    }
-                }
-                binding.apply {
-                    barChart.animation.duration = animationDuration
-                    barChart.animate(mutableList)
-                }
-            }
-            .addOnFailureListener { exception ->
-                println("Gagal mengambil data: $exception")
-            }
+//        collectionRef
+//            .whereGreaterThanOrEqualTo("hari", firstDayOfMonth)
+//            .whereLessThanOrEqualTo("hari", lastDayOfMonth)
+//            .get()
+//            .addOnSuccessListener { result ->
+//                val data = ArrayList<String>()
+//                for (document: QueryDocumentSnapshot in result) {
+//                    val field1: Double? = document.getDouble("air")
+//                    val doubleValue: Double = field1?.toDouble() ?: 0.0
+//                    val field1Float: Float = doubleValue.toFloat()
+//                    val field2 = document.getDouble("id_kamar")
+//                    val field3 = document.getDate("hari")
+//                    val label = getDayOfMonth(field3 as Date).toString()
+//                    val record = "$field1, $field2 ,$field3"
+//                    data.add(record)
+//                    if (field2 != null) {
+//                        if (field2.equals(doubleValueKamar)) {
+//                            mutableList.add(label to field1Float)
+//                        }
+//                    }
+//                }
+//                binding.apply {
+//                    barChart.animation.duration = animationDuration
+//                    barChart.animate(mutableList)
+//                }
+//                println(mutableList)
+//            }
+//            .addOnFailureListener { exception ->
+//                println("Gagal mengambil data: $exception")
+//            }
     }
 
     companion object {

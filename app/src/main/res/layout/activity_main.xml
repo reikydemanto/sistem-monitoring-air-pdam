@@ -57,41 +57,45 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/topbar"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
         android:padding="16dp">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:padding="16dp"
             app:cardCornerRadius="8dp"
             app:cardElevation="4dp"
             app:cardUseCompatPadding="true">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="8dp">
+                android:orientation="vertical">
 
 
-                <com.db.williamchart.view.BarChartView
-                    android:id="@+id/barChart"
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    app:chart_barsColor="@color/purple_200"
-                    app:chart_barsRadius="4dp"
-                    app:chart_labelsSize="10dp"/>
+                <!--                <com.db.williamchart.view.BarChartView-->
+                <!--                    android:id="@+id/barChart"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="150dp"-->
+                <!--                    app:chart_barsColor="@color/purple_200"-->
+                <!--                    app:chart_barsRadius="4dp"-->
+                <!--                    app:chart_labelsSize="10dp"/>-->
 
-                <TextView
-                    android:id="@+id/bulan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:text="bulan"
-                    android:textAlignment="center"
-                    android:textSize="20sp" />
+                <!--                <TextView-->
+                <!--                    android:id="@+id/bulan"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="4dp"-->
+                <!--                    android:text="bulan"-->
+                <!--                    android:textAlignment="center"-->
+                <!--                    android:textSize="20sp" />-->
 
+                <ImageView
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:src="@drawable/img" />
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -102,37 +106,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/chart"
-        android:orientation="horizontal"
         android:layout_marginTop="10dp"
+        android:orientation="horizontal"
         android:paddingHorizontal="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:padding="8dp">
 
             <Button
                 android:id="@+id/monitor"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:text="Monitoring"
-                />
+                android:text="Monitoring" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:padding="8dp">
 
             <Button
                 android:id="@+id/billing"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:text="Billing"
-                />
+                android:text="Billing" />
 
         </LinearLayout>
 
