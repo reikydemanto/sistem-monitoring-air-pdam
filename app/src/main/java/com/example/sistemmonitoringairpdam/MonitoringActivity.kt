@@ -123,6 +123,31 @@ class MonitoringActivity : AppCompatActivity() {
                     )
                 }
 
+                // Filter hanya data yang terjadi pada hari Senin
+                val monday = formattedData.filter { Calendar.getInstance().apply { time = it.date }.get(Calendar.DAY_OF_WEEK) == Calendar.MONDAY }
+
+// Menemukan Senin terakhir
+                val latestMonday = monday.maxByOrNull { it.date }
+
+// Filter hanya data yang terjadi pada hari Selasa
+                val tuesday = formattedData.filter { Calendar.getInstance().apply { time = it.date }.get(Calendar.DAY_OF_WEEK) == Calendar.TUESDAY }
+
+// Menemukan Selasa terakhir
+                val latestTuesday = tuesday.maxByOrNull { it.date }
+
+// Filter hanya data yang terjadi pada hari Rabu
+                val wednesday = formattedData.filter { Calendar.getInstance().apply { time = it.date }.get(Calendar.DAY_OF_WEEK) == Calendar.WEDNESDAY }
+
+// Menemukan Rabu terakhir
+                val latestWednesday = wednesday.maxByOrNull { it.date }
+
+// Filter hanya data yang terjadi pada hari Kamis
+                val thursday = formattedData.filter { Calendar.getInstance().apply { time = it.date }.get(Calendar.DAY_OF_WEEK) == Calendar.THURSDAY }
+
+// Menemukan Kamis terakhir
+                val latestThursday = thursday.maxByOrNull { it.date }
+
+
                 // Filter hanya data yang terjadi pada hari Jumat
                 val fridays = formattedData.filter { Calendar.getInstance().apply { time = it.date }.get(Calendar.DAY_OF_WEEK) == Calendar.FRIDAY }
 
@@ -144,6 +169,22 @@ class MonitoringActivity : AppCompatActivity() {
                 val textView: TextView = findViewById(R.id.fri)
                 val textView1: TextView = findViewById(R.id.sat)
                 val textView2: TextView = findViewById(R.id.sun)
+                val textView3: TextView = findViewById(R.id.mon)
+                val textView4: TextView = findViewById(R.id.tue)
+                val textView5: TextView = findViewById(R.id.wed)
+                val textView6: TextView = findViewById(R.id.thu)
+                if (latestMonday != null) {
+                    textView3.text = latestMonday.value.toString()+" Liter"
+                }
+                if (latestTuesday != null) {
+                    textView4.text = latestTuesday.value.toString()+" Liter"
+                }
+                if (latestWednesday != null) {
+                    textView5.text = latestWednesday.value.toString()+" Liter"
+                }
+                if (latestThursday != null) {
+                    textView6.text = latestThursday.value.toString()+" Liter"
+                }
                 if (latestFriday != null) {
                     textView.text = latestFriday.value.toString()+" Liter"
                 }

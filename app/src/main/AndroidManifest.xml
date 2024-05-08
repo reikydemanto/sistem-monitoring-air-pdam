@@ -13,6 +13,12 @@
         android:theme="@style/Theme.SistemMonitoringAirPdam"
         tools:targetApi="31">
         <activity
+            android:name=".ResetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LupaPasswordActivity"
+            android:exported="false" />
+        <activity
             android:name=".BillingActivity"
             android:exported="false" />
         <activity

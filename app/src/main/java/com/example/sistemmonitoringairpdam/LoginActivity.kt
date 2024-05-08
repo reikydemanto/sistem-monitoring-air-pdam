@@ -1,11 +1,13 @@
 package com.example.sistemmonitoringairpdam
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -19,8 +21,10 @@ class LoginActivity : AppCompatActivity() {
     lateinit var buttonLogin: Button
     lateinit var editTextUsername: EditText
     lateinit var editTextPassword: EditText
+    lateinit var lupapassword: TextView
 
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         val sharedPreferences = getSharedPreferences("Session", Context.MODE_PRIVATE)
         val idKamar: Int = sharedPreferences.getInt("idKamar", 0)
@@ -33,6 +37,11 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         buttonLogin = findViewById<Button>(R.id.buttonLogin)
+        lupapassword = findViewById<TextView>(R.id.lupapass)
+        lupapassword.setOnClickListener {
+            val intent = Intent(this, LupaPasswordActivity::class.java)
+            startActivity(intent)
+        }
         editTextUsername = findViewById<EditText>(R.id.editTextUsername)
         editTextPassword = findViewById<EditText>(R.id.editTextPassword)
 
